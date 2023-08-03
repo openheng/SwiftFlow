@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <!--配置要链接的数据库的数据源-->
+    <classPathEntry location="mysql-connector-java-5.1.46.jar"/>
+    <!---Mybatis上下文-->
+    <context id="MySqlContext" targetRuntime="MyBatis3">
+        <!--配置数据库的链接信息-->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://127.0.0.1:3306/test?useSSL=true"
+                        userId="root"
+                        password="123456"/>
+        <!--数据库BigDecimals字段在java中定义-->
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+        <!--实体类生成信息-->
+        <javaModelGenerator targetPackage="com.openheng.dao" targetProject="../../SwiftFlow-Server/src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+        <!--mybatis 的xml文件地址-->
+        <sqlMapGenerator targetPackage="mybatis" targetProject="../../SwiftFlow-Server/src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+        <!--mybatis的mapper接口-->
+        <javaClientGenerator targetPackage="com.openheng.dao" targetProject="../../SwiftFlow-Server/src/main/java" type="XMLMAPPER">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <!--要生成的表结构-->
+        <table tableName="swift_task_flow" domainObjectName="TaskFlow"
+               enableCountByExample="true" enableUpdateByExample="true"
+               enableDeleteByExample="true" enableSelectByExample="true"
+               selectByExampleQueryId="true" >
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table tableName="swift_task_flow_node" domainObjectName="TaskFlowNode"
+               enableCountByExample="true" enableUpdateByExample="true"
+               enableDeleteByExample="true" enableSelectByExample="true"
+               selectByExampleQueryId="true">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table tableName="swift_task" domainObjectName="Task"
+               enableCountByExample="true" enableUpdateByExample="true"
+               enableDeleteByExample="true" enableSelectByExample="true"
+               selectByExampleQueryId="true">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+        <table tableName="swift_task_node_execution_info" domainObjectName="TaskNodeExecutionInfo"
+               enableCountByExample="true" enableUpdateByExample="true"
+               enableDeleteByExample="true" enableSelectByExample="true"
+               selectByExampleQueryId="true">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+    </context>
+</generatorConfiguration>

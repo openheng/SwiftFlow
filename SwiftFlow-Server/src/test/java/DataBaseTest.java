@@ -19,7 +19,7 @@ public class DataBaseTest {
     public void testInsert() {
         TaskFlow mockTaskFlow = new TaskFlow();
         mockTaskFlow.setId(System.currentTimeMillis());
-        mockTaskFlow.setBiz_code((byte) 0);
+        mockTaskFlow.setBizCode((byte) 0);
         mockTaskFlow.setName("mock");
         int insertNum = taskFlowMapper.insertSelective(mockTaskFlow);
         Assertions.assertNotEquals(insertNum, 0);
